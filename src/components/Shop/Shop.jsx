@@ -28,10 +28,10 @@ const Shop = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch(`http://localhost:5000/products?page=${currentPage}&size=${itemPerPages}`)
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, []);
+    }, [currentPage,itemPerPages]);
 
     useEffect(() => {
         const storedCart = getShoppingCart();
